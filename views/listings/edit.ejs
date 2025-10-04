@@ -1,0 +1,69 @@
+<% layout("./layouts/boilerplate") %>
+    <div class="row mt-3">
+    <div class="col-8 offset-2">
+    <h3>Edit listing</h3>
+    <form method="post" action="/listings/<%=listing._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" name="listing[title]" value="<%= listing.title %>" class="form-control" required>
+            <div class="invalid-feedback">Please enter title</div>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label" >Description</label>
+            <textarea name="listing[description]" class="form-control" required><%= listing.description %></textarea>
+            <div class="invalid-feedback">Provide a proper description</div>
+        </div>
+        <div class="mb-3">
+            <img src="<%= orgurl %>" class="photo-image">
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label" >Upload new image</label>
+            <input type="file" name="listing[image]"  class="form-control" >
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label" >Enter an url</label>
+            <input type="text" name="listing[image][url]"  class="form-control" value="<%= orgurl %>" >
+        </div>
+        <div class="mb-3">
+            <label for="Category" class="form-label" >specify the Category</label>
+            <div class="dropdown">
+                <input type="text" class="form-control dropdown-toggle" id="categoryInput" value="<%= listing.category %>" data-bs-toggle="dropdown" aria-expanded="false" name="listing[category]">
+                <ul class="dropdown-menu">
+                    <li><button class="dropdown-item" type="button">Trending</button></li>
+                    <li><button class="dropdown-item" type="button">Lodge</button></li>
+                    <li><button class="dropdown-item" type="button">Mountains</button></li>
+                    <li><button class="dropdown-item" type="button">Iconic-cities</button></li>
+                    <li><button class="dropdown-item" type="button">Beaches</button></li>
+                    <li><button class="dropdown-item" type="button">Pools</button></li>
+                    <li><button class="dropdown-item" type="button">Castles</button></li>
+                    <li><button class="dropdown-item" type="button">Camping</button></li>
+                    <li><button class="dropdown-item" type="button">Towers</button></li>
+                    <li><button class="dropdown-item" type="button">Boats</button></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <label for="price" class="form-label" >Price</label>
+                <input type="number" name="listing[price]" value="<%= listing.price %>" class="form-control" required>
+                <div class="invalid-feedback">Enter a valid price</div>
+            </div>
+            <div class="mb-3 col-md-8">
+                <label for="country" class="form-label" >Country</label>
+                <input type="text" name="listing[country]" value="<%= listing.country %>" class="form-control" required>
+                <div class="invalid-feedback">Specify a valid country</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" name="listing[location]" value="<%= listing.location %>" class="form-control" required>
+            <div class="invalid-feedback">Specify a valid location</div>
+        </div>
+        
+        <button class="btn btn-dark edit-btn mt-3">Save Changes</button>
+        <br><br>
+    </form>
+    </div>
+    </div>
+
+
