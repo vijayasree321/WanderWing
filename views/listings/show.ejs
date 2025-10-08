@@ -21,7 +21,7 @@
           <p class="card-text">owned by <i><%= listing.owner.username %></i></p>
           <p class="card-text"><%= listing.description %></p>
           <p class="card-text">₹ <%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %>/night</p>
-          <p class="card-text"><%= listing.location %></p>
+          <p class="card-text"><i class="fa-solid fa-location-dot" style="font-size: 1.5rem; opacity: 0.9;"></i><%= listing.location %></p>
           <p class="card-text"><%= listing.country %></p>
         </div>
       </div>
@@ -88,7 +88,7 @@
               </p>
             </div>
             <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=Delete" method="post" class="p-2">
-              <button class="btn btn-sm btn-dark">Delete</button>
+              <button class="btn btn-sm btn-dark mt-2">Delete</button>
             </form>
           </div>
         </div>

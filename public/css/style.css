@@ -95,7 +95,9 @@ footer {
 /* Edit page */
 .edit-btn {
   background-color: #fe4242 !important;
+  padding:0.45rem 1.5rem !important;
   border: none !important;
+
 }
 /* Show Page */
 .show-img {
@@ -109,42 +111,7 @@ footer {
   padding-left: 0;
   padding-right: 0;
 }
-/* Index Page */
-.filterbar .filter {
-  text-align: center;
-  margin-top: 1rem;
-  opacity: 0.58;
-}
 
-.filter p {
-  font-size: 0.9rem;
-  color: black;
-}
-
-.filterbar a {
-  text-decoration: none;
-  
-}
-.filter i {
-  font-size: 1.2rem;
-  color: #000000;
-}
-
-.filter:hover {
-  opacity: 1;
-  cursor: pointer;
-}
-.filter {
-  background-color: white !important;
-}
-
-.tax-toggle {
-  border: 1px solid rgb(0, 0, 0);
-  height: 3rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 0.7rem;
-  white-space: nowrap;
-}
 /* map */
 #map {
   height: 400px;

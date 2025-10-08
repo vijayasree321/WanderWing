@@ -1,102 +1,61 @@
 <% layout("./layouts/boilerplate") %>
+
+<style>
+  /* Styles for the filter icons and text */
+  .filter {
+    text-align: center;
+    opacity: 0.7;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  .filter:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .filter p {
+    font-size: 0.9rem;
+    color: #000000;
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+  }
+
+  .filter i {
+    font-size: 1.5rem; /* Made icons a bit bigger for the modal */
+    color: #000000;
+  }
+
+  /* Ensure links are not decorated */
+  a {
+    text-decoration: none;
+  }
+
+  /* Styles for the tax toggle switch */
+  .tax-toggle {
+    border: 1px solid rgb(0, 0, 0);
+    height: 3rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.7rem;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 380px) {
+    .tax-toggle {
+      padding: 0.6rem 0.6rem;
+    }
+  }
+</style>
+
 <div class="sub-nav d-flex justify-content-between align-items-center">
-  <div class="dropdown mt-3">
-    <button
-      class="btn dropdown-toggle add-btn text-white"
-      type="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      filters
-    </button>
-    <div class="dropdown-menu filterbar">
-      <div class="d-flex">
-        <a href="/listings?category=Trending">
-          <div class="dropdown-item filter">
-            <div>
-              <i class="fa-solid fa-fire"></i>
-            </div>
-            <p>Trending</p>
-          </div>
-        </a>
-        <a href="/listings?category=Lodge">
-          <div class="dropdown-item filter">
-            <div>
-              <i class="fa-solid fa-bed"></i>
-            </div>
-            <p>Lodge</p>
-          </div>
-        </a>
-        <a href="/listings?category=Iconic-cities">
-          <div class="dropdown-item filter">
-            <div>
-              <i class="fa-solid fa-mountain-city"></i>
-            </div>
-
-            <p>Iconic-Cities</p>
-          </div>
-        </a>
-        <a href="/listings?category=Mountains">
-          <div class="dropdown-item filter">
-            <div>
-              <i class="fa-solid fa-mountain"></i>
-            </div>
-            <p>Mountains</p>
-          </div>
-        </a>
-        <a href="/listings?category=Beaches">
-          <div class="dropdown-item filter">
-            <div>
-              <i class="fa-solid fa-umbrella-beach"></i>
-            </div>
-            <p>Beaches</p>
-          </div>
-        </a>
-        <a href="/listings?category=Pools">
-          <div class="dropdown-item filter">
-            <div>
-              <i class="fa-solid fa-person-swimming"></i>
-            </div>
-            <p>Amazing Pools</p>
-          </div>
-        </a>
-        <a href="/listings?category=Castles">
-          <div class="dropdown-item filter">
-            <div>
-              <i class="fa-brands fa-fort-awesome"></i>
-            </div>
-            <p>Castles</p>
-          </div>
-        </a>
-        <a href="/listings?category=Camping">
-          <div class="dropdown-item filter">
-            <div>
-              <i class="fa-solid fa-tents"></i>
-            </div>
-            <p>Camping</p>
-          </div>
-        </a>
-        <a href="/listings?category=Towers">
-          <div class="dropdown-item filter">
-            <div>
-              <i class="fa-solid fa-tower-observation"></i>
-            </div>
-
-            <p>Towers</p>
-          </div></a
-        >
-        <a href="/listings?category=Boats">
-          <div class="dropdown-item filter">
-            <div>
-              <i class="fa-solid fa-sailboat"></i>
-            </div>
-
-            <p>Boats</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
+  <button
+    type="button"
+    class="btn add-btn text-white"
+    data-bs-toggle="modal"
+    data-bs-target="#filtersModal"
+    style="background-color: #fe424d"
+  >
+    Filters  <i class="fa-solid fa-sliders"></i>
+  </button>
 
   <div class="tax-toggle mt-3">
     <div class="form-check-reverse form-switch">
@@ -112,10 +71,122 @@
     </div>
   </div>
 </div>
-<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+
+<div
+  class="modal fade"
+  id="filtersModal"
+  tabindex="-1"
+  aria-labelledby="filtersModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="filtersModalLabel">Filters </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="row row-cols-3 row-cols-sm-4 row-cols-md-5 g-4 text-center">
+          <div class="col">
+            <a href="/listings?category=Trending">
+              <div class="filter">
+                <div><i class="fa-solid fa-fire"></i></div>
+                <p>Trending</p>
+              </div>
+            </a>
+          </div>
+          <div class="col">
+            <a href="/listings?category=Lodge">
+              <div class="filter">
+                <div><i class="fa-solid fa-bed"></i></div>
+                <p>Lodge</p>
+              </div>
+            </a>
+          </div>
+          <div class="col">
+            <a href="/listings?category=Iconic-cities">
+              <div class="filter">
+                <div><i class="fa-solid fa-mountain-city"></i></div>
+                <p>Iconic Cities</p>
+              </div>
+            </a>
+          </div>
+          <div class="col">
+            <a href="/listings?category=Mountains">
+              <div class="filter">
+                <div><i class="fa-solid fa-mountain"></i></div>
+                <p>Mountains</p>
+              </div>
+            </a>
+          </div>
+          <div class="col">
+            <a href="/listings?category=Beaches">
+              <div class="filter">
+                <div><i class="fa-solid fa-umbrella-beach"></i></div>
+                <p>Beaches</p>
+              </div>
+            </a>
+          </div>
+          <div class="col">
+            <a href="/listings?category=Pools">
+              <div class="filter">
+                <div><i class="fa-solid fa-person-swimming"></i></div>
+                <p>Amazing Pools</p>
+              </div>
+            </a>
+          </div>
+          <div class="col">
+            <a href="/listings?category=Castles">
+              <div class="filter">
+                <div><i class="fa-brands fa-fort-awesome"></i></div>
+                <p>Castles</p>
+              </div>
+            </a>
+          </div>
+          <div class="col">
+            <a href="/listings?category=Camping">
+              <div class="filter">
+                <div><i class="fa-solid fa-tents"></i></div>
+                <p>Camping</p>
+              </div>
+            </a>
+          </div>
+          <div class="col">
+            <a href="/listings?category=Towers">
+              <div class="filter">
+                <div><i class="fa-solid fa-tower-observation"></i></div>
+                <p>Towers</p>
+              </div>
+            </a>
+          </div>
+          <div class="col">
+            <a href="/listings?category=Boats">
+              <div class="filter">
+                <div><i class="fa-solid fa-sailboat"></i></div>
+                <p>Boats</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mt-3">
   <% for(let listing of allListings) { %>
   <a href="/listings/<%= listing._id %>" class="listing-link">
-    <div class="card col listing-card">
+    <div class="card listing-card">
       <img
         src="<%= listing.image.url %>"
         class="card-img-top"
